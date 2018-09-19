@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Mapa from '@/components/Mapa'
-import Login from '@/components/Login'
+import crearProyectos from '@/components/crearProyectos'
 
 Vue.use(Router)
 export default new Router({
@@ -12,9 +12,9 @@ export default new Router({
       component: Mapa
     },
     {
-      path: '/',
-      name: 'Login',
-      component: Login
+      path: '/crearProyectos',
+      name: 'crearProyectos',
+      component: crearProyectos
     }
   ]
 })

@@ -12,8 +12,8 @@ Vue.use(VueResource)
 
 export const store = new Vuex.Store({
   state: {
-  	count: 0,
-  	proyectosPorZona: null
+  count: 0,
+  proyectosPorZona: null
   },
   mutations,
   actions,
