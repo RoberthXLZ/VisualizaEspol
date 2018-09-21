@@ -73,9 +73,7 @@
             <md-toolbar :md-elevation="1">
               <span class="md-title">Lugar</span>
             </md-toolbar>
-      
               <md-card-content-->
-
                 <div class="md-layout md-gutter">
                   <div class="md-layout-item md-small-size-100" >
                       <md-field :class="getValidationClass('selectedContinente')">
@@ -163,7 +161,7 @@ import { validationMixin } from 'vuelidate'
 import lugares from '../assets/js/lugares'
 import {
   required,
-  email,
+  // email,
   minLength,
   maxLength
 } from 'vuelidate/lib/validators'
@@ -219,12 +217,12 @@ export default {
       },
       categoria: {
         required
-      },
+      }
     }
   },
   /* mounted () {
-    this.paises = 
-  },*/
+    this.paises =
+  }, */
   methods: {
     getValidationClass (fieldName) {
       const field = this.$v.form[fieldName]
@@ -235,9 +233,10 @@ export default {
       }
     },
     cambiaValor: function (value) {
-      console.log('valor: ',value)
+      console.log('valor: ', value)
       if (!this.continenteValid) {
         this.continenteValid = true
+        this.paises = lugares('America')
       }
     },
     clearForm () {
@@ -251,8 +250,8 @@ export default {
       this.form.selectedPaises = null
       this.form.director = null
       this.form.involucrado = null
-      //this.form.fechaInicio = null
-      //this.form.fechaFin = null
+      // this.form.fechaInicio = null
+      // this.form.fechaFin = null
     },
     saveUser () {
       this.sending = true

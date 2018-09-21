@@ -1,37 +1,30 @@
 <template>
-	<v-container grid-list-md text-xs-center>
-		<app-navbar></app-navbar>
-		<v-layout row wrap>
-    		<v-flex xs4 id='panel_de_control'>
-		       <v-card white color="secondary">
-		         <div
-			        class="form-check"
-			        v-for="layer in layers"
-			        :key="layer.id"
-			      >
-			      <label class="form-check-label">
-			      <input
-			              class="form-check-input"
-			              type="checkbox"
-			              v-model="layer.active"
-			              @change="layerChanged(layer.id, layer.active)"
-			       /> {{ layer.name }} </label>
-			      </div>			      	
-			      <div class="text-xs-center">
-			      	<v-btn outline color="indigo" v-on:click="irALogin()">Crear Nuevo proyecto</v-btn>
-			      </div>
-			    </div>
- 
-		       </v-card>
-      		</v-flex>
-      		<v-flex xs8>
-      			<v-card id='map' class='map'></v-card>
-      		</v-flex>
-      	</v-layout>
-    </v-container>
+<v-container grid-list-md text-xs-center>
+<app-navbar></app-navbar>
+<v-layout row wrap>
+<v-flex xs4 id='panel_de_control'>
+<v-card white color="secondary">
+<v-container fluid>
+    <v-checkbox
+    v-for="layer in layers"
+    :key = "layer.id"
+    :label="`${layer.name}`" v-model="layer.active"
+    @change="layerChanged(layer.id, layer.active)"></v-checkbox>
+ </v-container>
+<div class="text-xs-center">
+<v-btn outline color="indigo" v-on:click="irALogin()">Crear Nuevo proyecto</v-btn>
+</div>
+    </v-card>
+    </v-flex>
+    <v-flex xs8>
+    <v-card id='map' class='map'></v-card>
+    </v-flex>
+    </v-layout>
+</v-container>
 </template>
 <script>
 import router from '../router'
+import L from 'leaflet'
 // import zona8 from './zona8.js'
 export default {
   name: 'HelloWorld',
@@ -42,6 +35,8 @@ export default {
       tileLayer: null,
       myLyres: null,
       LgeoJson: null,
+      checkbox1: true,
+      checkbox2: false,
       L: null,
       layers: [
         {

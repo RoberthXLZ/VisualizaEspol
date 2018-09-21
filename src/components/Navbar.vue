@@ -1,7 +1,7 @@
 <template>
   <div id='navbar'>
   <v-toolbar color="blue darken-2">
-    <md-icon class="md-size-2x" color="white">home</md-icon>
+    <md-icon class="md-size-1x" color="red">home</md-icon>
     <!--v-toolbar-side-icon></v-toolbar-side-icon-->
     <v-toolbar-title color="white" id="title"
     @click="inicio()" >

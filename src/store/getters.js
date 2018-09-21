@@ -1,5 +1,5 @@
 export default {
-	proyectosPorZonas(state) {
-		return state.proyectosPorZonas
-	}
+  proyectosPorZonas (state) {
+    return state.proyectosPorZonas
+  }
 }
