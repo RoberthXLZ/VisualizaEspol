@@ -3,12 +3,15 @@
   <app-navbar></app-navbar>
   <div>
     <form novalidate class="md-layout" @submit.prevent="validateUser">
-      <md-card style="left:240px; top:20px;" class="md-layout-item md-size-60 md-small-size-100">
+      <md-card style="left:150px; top:20px;" class="md-layout-item md-size-80 md-small-size-100">
         <md-toolbar :md-elevation="1">
               <span class="md-title">Nuevo Proyecto</span>
             </md-toolbar>
         <md-card-content>
-          <div class="md-layout md-gutter">
+          <div>
+              <md-steppers md-horizontal>
+                <md-step id="first" md-label="Datos Principales" md-description="datos principales del proyecto">
+                  <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('nombreProyecto')">
                 <!--md-icon>thumb_up</md-icon-->
@@ -68,13 +71,11 @@
                 </md-datepicker>
             </div>
           </div>
-          <!--Parte del formulario para llenar el lugar del proyecto-->
-          <!--md-card>
-            <md-toolbar :md-elevation="1">
-              <span class="md-title">Lugar</span>
-            </md-toolbar>
-              <md-card-content-->
-                <div class="md-layout md-gutter">
+          
+        </md-step>
+                <!--Segundo Stepper -->
+                <md-step id="second" md-label="Lugar" md-description="Lugar donde ocurrió el proyecto">
+                      <div class="md-layout md-gutter">
                   <div class="md-layout-item md-small-size-100" >
                       <md-field :class="getValidationClass('selectedContinente')">
                         <label for="tipoProyecto">Contiente</label>
@@ -90,59 +91,77 @@
                   </div>
 
                   <div class="md-layout-item md-small-size-100">
-                      <md-autocomplete name="selectedPaises" id="selectedPaises" v-model="form.selectedPaises" md-dense  :md-options="paises" >
+                      <!--md-autocomplete name="selectedPaises" id="selectedPaises" v-model="form.selectedPaises" md-dense  :md-options="paises" >
                         <label >Paises</label>
-                      </md-autocomplete>
+                      </md-autocomplete-->
+                      <v-card id='map' class='map'></v-card>
                   </div>
                 </div>
-              <!--/md-card-content>
-          </md-card-->
-          <!--para llenar los involucrados-->
-          <!--md-card>
-            <md-card-header>
-              <div class="md-title">Involucrados</div>
-              </md-card-header>
-              <md-card-content-->
-              <!--/md-card-content>
-          </md-card-->
-          <!--md-field :class="getValidationClass('email')">
-            <label for="email">Email</label>
-            <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending" />
-            <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
-            <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
-          </md-field-->
-          <div class="md-layout md-gutter">
-                  <div class="md-layout-item md-small-size-100" >
+
+
+                </md-step>
+
+                <md-step id="third" md-label="Involucrados" md-description="Personas que formaron parte del proyecto">
+
+                  <div class="md-layout md-gutter">
+                    <div class="md-layout-item md-small-size-100" >
                        <md-field>
                         <label>Director(@) del Proyecto</label>
                         <md-input v-model="form.director" maxlength="30" counter="30"></md-input>
                         </md-field>
-                  </div>
+                    </div>
 
-                  <div class="md-layout-item md-small-size-100" >
+                    <div class="md-layout-item md-small-size-100" >
                        <md-field>
                         <label>Involucrados</label>
                         <md-input v-model="form.involucrado" maxlength="30" counter="30" placeholder="Ingrese los nombres, separado por comas"></md-input>
                         </md-field>
+                    </div>
                   </div>
-          </div>
-
-          <div class="md-layout md-gutter">
-                  <div class="md-layout-item md-small-size-100" >
+                </md-step>
+                
+                <md-step id="four" md-label="Beneficiarios" md-description="">
+                  
+                  <div class="md-layout md-gutter">
+                    <div class="md-layout-item md-small-size-100" >
                        <md-field>
-                          <label>Inversion</label>
+                          <label>Beneficiado</label>
                           <span class="md-prefix">$</span>
                           <md-input v-model="form.inversion"></md-input>
                         </md-field>
+                    </div>
+
+                    <div class="md-layout-item md-small-size-100" >
+                       <md-field :class="getValidationClass('email')">
+                          <label for="email">Email</label>
+                          <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending" />
+                          <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
+                          <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
+                        </md-field>     
+                    </div>
                   </div>
 
-                  <!--div class="md-layout-item md-small-size-100" >
+                  <div class="md-layout md-gutter">
+                    <div class="md-layout-item md-small-size-100" >
                        <md-field>
-                        <label>Involucrados</label>
-                        <md-input v-model="form.involucrado" maxlength="30" counter="30" placeholder="Ingrese los nombres, separado por comas"></md-input>
+                          <label>Rol</label>
+                          <span class="md-prefix">$</span>
+                          <md-input v-model="form.inversion"></md-input>
                         </md-field>
-                  </div-->
-          </div>
+                    </div>
+
+                    <div class="md-layout-item md-small-size-100" >
+                       <md-field>
+                          <label>Telefono</label>
+                          <span class="md-prefix">$</span>
+                          <md-input v-model="form.inversion"></md-input>
+                        </md-field>
+                    </div>
+                  </div>
+
+                </md-step>
+              </md-steppers>
+            </div>
         </md-card-content>
 
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
@@ -173,7 +192,11 @@ export default {
     rolValido: false,
     nInversion: 1,
     paises: ['Ecuador', 'Chile', 'Colombia', 'Perú'],
+    map: null,
+    tileLayer: null,
+    popup: null,
     form: {
+      email: null,
       nombreProyecto: null,
       tipoProyecto: null,
       categoria: null,
@@ -217,13 +240,38 @@ export default {
       },
       categoria: {
         required
+      },
+      email: {
+        required
       }
     }
   },
-  /* mounted () {
-    this.paises =
-  }, */
+mounted () {
+    this.initMap()
+    this.popup = L.popup()
+    this.map.on('click', this.onMapClick)
+    // this.initLayers()
+  },
   methods: {
+    initMap () {
+      this.map = L.map('map').setView([37.88437176085360, -4.779524803161621], 14)
+
+      this.tileLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap<\/a> contributors'
+      })
+      this.tileLayer.addTo(this.map)
+      // L.geoJSON(data.geojsonFeature).addTo(this.map)
+      // console.log('data',data)
+      // console.log('Zonas: ',zona8)
+      // this.myLyres = L.geoJSON().addTo(this.map)
+    },
+
+    onMapClick(e) {
+    this.popup
+        .setLatLng(e.latlng) // Sets the geographical point where the popup will open.
+        .setContent("Has hecho click en la coordenada:<br> " +  e.latlng.lat.toString() + "," +  e.latlng.lng.toString()) // Sets the HTML content of the popup.
+        .openOn(map); // Adds the popup to the map and closes the previous one. 
+    },
     getValidationClass (fieldName) {
       const field = this.$v.form[fieldName]
       if (field) {
@@ -242,6 +290,7 @@ export default {
     clearForm () {
       this.$v.$reset()
       this.form.nombreProyecto = null
+      this.form.email = null
       this.form.tipoProyecto = null
       this.form.descripcion = null
       this.form.categoria = null
@@ -280,4 +329,11 @@ export default {
     right: 0;
     left: 0;
   }
+  .map {
+    width: 100%;
+    height: 200px;
+    box-shadow: 5px 5px 5px #888;
+    margin-left:5px;
+    border: 0px solid black;
+}
 </style>
