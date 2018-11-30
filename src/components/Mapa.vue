@@ -138,32 +138,66 @@ export default {
             },
             {
               id: 1,
-              name: 'Pappy\'s Smokehouse',
+              name: 'BIBLIOTECA VIRTUAL  CIB – ESPOL',
+              categoria: 'Vinculos con la Sociedad',
+              tipo: 'Estudiantil',
+              array: ['h1', 'h2', 'h3'],
+              beneficiario: [{nombre:'Roberth', celular:'0981008659', correo:'roberthloor1@gmail.com'},
+              {nombre:'Kevin', celular:'0981006759', correo:'kevinalvapearson77@gmail.com'},
+              {nombre:'Jorge', celular:'0981003459', correo:'lgino@gmail.com'}],
               lugar: 'Guayaquil',
               type: 'marker',
               coords: [-2.3778571536645723, -79.8760986328125]
             },
             {
               id: 2,
-              name: 'Broadway Oyster Bar',
+              name: 'LEGO MINDSTROM  CIB – ESPOL',
+              categoria: 'Proyectos de Investigaciones',
+              tipo: 'Estudiantil',
+              array: ['h1', 'h2', 'h3'],
+              beneficiario: [{nombre:'Roberth', celular:'0981008659', correo:'roberthloor1@gmail.com'},
+              {nombre:'Kevin', celular:'0981006759', correo:'kevinalvapearson77@gmail.com'},
+              {nombre:'Jorge', celular:'0981003459', correo:'lgino@gmail.com'}],
+              lugar: 'Guayaquil',
               type: 'marker',
               coords: [-2.5562194448989453, -79.91729736328125]
             },
             {
               id: 3,
-              name: 'Charlie Gitto\'s On the Hill',
+              name: 'MATERIA INTEGRADORA  CIB – ESPOL',
+              categoria: 'Vinculos con la Sociedad',
+              tipo: 'Estudiantil',
+              array: ['h1', 'h2', 'h3'],
+              beneficiario: [{nombre:'Roberth', celular:'0981008659', correo:'roberthloor1@gmail.com'},
+              {nombre:'Kevin', celular:'0981006759', correo:'kevinalvapearson77@gmail.com'},
+              {nombre:'Jorge', celular:'0981003459', correo:'lgino@gmail.com'}],
+              lugar: 'Guayaquil',
               type: 'marker',
               coords: [-2.5562194448989453, -79.9639892578125]
             },
             {
               id: 4,
-              name: 'Sugarfire',
+              name: 'SCRATCH  CIB – ESPOL',
+              categoria: 'Materia Integradora',
+              tipo: 'Estudiantil',
+              array: ['h1', 'h2', 'h3'],
+              beneficiario: [{nombre:'Roberth', celular:'0981008659', correo:'roberthloor1@gmail.com'},
+              {nombre:'Kevin', celular:'0981006759', correo:'kevinalvapearson77@gmail.com'},
+              {nombre:'Jorge', celular:'0981003459', correo:'lgino@gmail.com'}],
+              lugar: 'Guayaquil',
               type: 'marker',
               coords: [-2.2516174965491453, -79.9639892578125]
             },
             {
               id: 5,
-              name: 'Guayaquil1',
+              name: 'BIBLIOTECA VIRTUAL  CIB – ESPOL',
+              categoria: 'Vinculos con la Sociedad',
+              tipo: 'Estudiantil',
+              array: ['h1', 'h2', 'h3'],
+              beneficiario: [{nombre:'Roberth', celular:'0981008659', correo:'roberthloor1@gmail.com'},
+              {nombre:'Kevin', celular:'0981006759', correo:'kevinalvapearson77@gmail.com'},
+              {nombre:'Jorge', celular:'0981003459', correo:'lgino@gmail.com'}],
+              lugar: 'Guayaquil',
               type: 'marker',
               coords: [-0.354358160095088, -78.75469506249999]
             }
@@ -189,10 +223,6 @@ export default {
         }
       )
       this.tileLayer.addTo(this.map)
-      // L.geoJSON(data.geojsonFeature).addTo(this.map)
-      // console.log('data',data)
-      // console.log('Zonas: ',zona8)
-      // this.myLyres = L.geoJSON().addTo(this.map)
     },
     initLayers () {
       this.layers.forEach((layer) => {
@@ -200,11 +230,13 @@ export default {
         const polygonFeatures = layer.features.filter(feature => feature.type === 'polygon')
         markerFeatures.forEach((feature) => {
           feature.leafletObject = L.marker(feature.coords)
-            .bindPopup('<div><h1>' + feature.name + '</h1></div><div>' + feature.type + '</div>')
+            .bindPopup('<div> <h4 style="text-align: center">' + feature.name + 
+              '</h4> <hr> <h4 style="color: red; letter-spacing: 2px; font: normal normal 18px quicksand; text-align:center;">' 
+              +feature.categoria + '</h4>')
         })
         polygonFeatures.forEach((feature) => {
           feature.leafletObject = L.polygon(feature.coords)
-            .bindPopup('<div>feature.name</div><div>Hola2</div>')
+            .bindPopup('<div>feature.name</div>')
         })
       })
     },
