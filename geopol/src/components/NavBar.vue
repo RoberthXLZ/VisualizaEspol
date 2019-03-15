@@ -7,8 +7,12 @@
                 <span class="headline font-weight-light">Mapa</span>
             </v-btn>
             <v-divider vertical></v-divider>
-            <v-btn flat small class="white--text" router to="/about">
+            <v-btn flat small class="white--text" router to="/formulario">
                 <span class="headline font-weight-light">Reportes</span>
+            </v-btn>
+            <v-divider vertical></v-divider>
+            <v-btn flat small class="white--text" router to="/formulario">
+                <span class="headline font-weight-light">Nuevo Proyecto</span>
             </v-btn>
         </v-toolbar-items>
         <v-spacer></v-spacer>

@@ -1,6 +1,7 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 
 export default {
+  /*
   getProyectosPorZonas ({commit}, zonaId) {
     return new Promise((resolve, reject) => {
       Vue.http.get('https://jsonplaceholder.typicode.com/todos/1')
@@ -19,5 +20,5 @@ export default {
           return reject(err)
         })
     })
-  }
+  } */
 }

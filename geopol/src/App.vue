@@ -1,9 +1,10 @@
 <template>
   <v-app>
-    <navBar />
     
-    <router-view></router-view>
+    <navBar/>
+    <router-view>
 
+    </router-view>
   </v-app>
 </template>
 
@@ -11,18 +12,14 @@
 import navBar from './components/NavBar'
 /*import Home from './views/Home'
 import About from './views/About'*/
-
-
-
 export default {
   name: 'App',
   components: {
     'navBar' : navBar,
-    
   },
   data () {
     return {
-      //
+      titulo: 'Roberth is here'
     }
   }
 }

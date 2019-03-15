@@ -15,8 +15,8 @@ export default new Router({
       component: Mapa
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/formulario',
+      name: 'formulario',
       component: Formulario
     }
   ]
