@@ -22,10 +22,10 @@ class BeneficiarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    /*public function create()
     {
         //
-    }
+    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -33,9 +33,29 @@ class BeneficiarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Beneficiario $beneficiario)
     {
         //
+
+        //$beneficiario= new beneficiario;
+         $nombre = request('nombre');
+         $correo = request('correo');
+         $celular = request('celular');
+         $direccion = request('direccion');
+
+         $found = Beneficiario::where('nombre', $nombre)->count();
+
+        if($found == 0){
+             // record not exist , save the record
+              $beneficiario = new Beneficiario(); 
+             $beneficiario->nombre = request('nombre');
+             $beneficiario->correo = request('correo');
+             $beneficiario->celular = request('celular');
+             $beneficiario->direccion = request('direccion');
+             $beneficiario->save();
+             return redirect()->back();
+        }
+
     }
 
     /**
@@ -46,7 +66,8 @@ class BeneficiarioController extends Controller
      */
     public function show(beneficiario $beneficiario)
     {
-        //
+       
+        return beneficiario::where('id', $id)->get();
     }
 
     /**
@@ -55,10 +76,10 @@ class BeneficiarioController extends Controller
      * @param  \App\beneficiario  $beneficiario
      * @return \Illuminate\Http\Response
      */
-    public function edit(beneficiario $beneficiario)
+    /*public function edit(beneficiario $beneficiario)
     {
         //
-    }
+    }*/
 
     /**
      * Update the specified resource in storage.

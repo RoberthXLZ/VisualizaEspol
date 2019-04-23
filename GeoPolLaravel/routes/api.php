@@ -13,6 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
+
+Route::apiResource('beneficiarios', 'BeneficiarioController');
+
+Route::apiResource('inversions', 'InversionController');
+
+Route::apiResource('involucrados', 'InvolucradoController');
+
+Route::apiResource('proyectos', 'ProyectoController');
+
+/*Route::get('xxxx', 'ProyectoController@create');*/

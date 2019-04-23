@@ -23,14 +23,17 @@ class CreateProyectosTable extends Migration
             $table->date('fecha_fin');
             $table->integer('total_participantes');
             $table->enum('area_conocimientos', array('tecnologias', 'ciencia de la vida', 'ciencia de la tierra', 'negocios', 'otros'));
-            $table->integer('id_Inversion')->unsigned();
-            $table->foreign('id_Inversion')->references('id')->on('inversions');
-            $table->integer('id_Involucrado')->unsigned();
-            $table->foreign('id_Involucrado')->references('id')->on('involucrados');
-            $table->integer('id_Beneficiario')->unsigned();
-            $table->foreign('id_Beneficiario')->references('id')->on('beneficiarios');
+            $table->integer('id_Inversion')->unsigned()->nullable();
+            $table->integer('id_Involucrado')->unsigned()->nullable();
+            $table->integer('id_Beneficiario')->unsigned()->nullable();
+            
+            $table->foreign('id_Involucrado')->references('id')->on('involucrados')->onDelete('cascade');
+            $table->foreign('id_Beneficiario')->references('id')->on('beneficiarios')->onDelete('cascade');
+            $table->foreign('id_Inversion')->references('id')->on('inversions')->onDelete('cascade');
             $table->timestamps();
         });
+
+        
     }
 
     /**

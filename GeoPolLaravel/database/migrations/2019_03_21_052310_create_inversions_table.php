@@ -16,9 +16,13 @@ class CreateInversionsTable extends Migration
         Schema::create('inversions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre_inversionista');
+            $table->string('nombre_proyecto');
             $table->double('monto');
             $table->timestamps();
         });
+
+        /*Schema::enableForeignKeyConstraints();*/
+
     }
 
     /**

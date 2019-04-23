@@ -15,6 +15,8 @@ Route::get('/', function () {
     return "Home";
 });
 
+Route::get('/inversions', 'InversionController@test_queries');
+
 Route::get('/usuarios', 'UserController@index');
 
 Route::get('/usuarios/{id}', 'UserController@show') ->where('id', '\d+');

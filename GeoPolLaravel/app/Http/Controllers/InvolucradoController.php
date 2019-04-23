@@ -33,9 +33,24 @@ class InvolucradoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Involucrado $involucrado)
     {
         //
+        $nombre= request('nombre');
+        $apellido= request('apellido');
+        $cedula= request('cedula');
+
+        $found= Involucrado::where('nombre', $nombre)->count();
+
+        if($found == 0){
+            $involucrado= new Involucrado();
+            $involucrado->nombre= request('nombre');
+            $involucrado->apellido= request('apellido');
+            $involucrado->cedula= request('cedula');
+
+            $involucrado-> save();
+            return redirect()->back();
+        }
     }
 
     /**
@@ -47,6 +62,7 @@ class InvolucradoController extends Controller
     public function show(involucrado $involucrado)
     {
         //
+        return involucrado::where('id', $id)->get();
     }
 
     /**
@@ -55,10 +71,10 @@ class InvolucradoController extends Controller
      * @param  \App\involucrado  $involucrado
      * @return \Illuminate\Http\Response
      */
-    public function edit(involucrado $involucrado)
+    /*public function edit(involucrado $involucrado)
     {
         //
-    }
+    }*/
 
     /**
      * Update the specified resource in storage.
