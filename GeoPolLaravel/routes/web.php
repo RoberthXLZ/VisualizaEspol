@@ -15,7 +15,9 @@ Route::get('/', function () {
     return "Home";
 });
 
-Route::get('/inversions', 'InversionController@test_queries');
+/*Route::get('/inversions', 'InversionController@test_queries');*/
+
+Route::get('/inversions', 'InversionController@index');
 
 Route::get('/usuarios', 'UserController@index');
 
