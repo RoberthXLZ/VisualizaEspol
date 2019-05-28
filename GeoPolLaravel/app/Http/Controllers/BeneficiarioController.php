@@ -15,6 +15,8 @@ class BeneficiarioController extends Controller
     public function index()
     {
         //
+        $ben = beneficiario::all();
+        return $ben;
     }
 
     /**

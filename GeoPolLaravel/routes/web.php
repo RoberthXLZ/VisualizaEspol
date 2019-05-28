@@ -18,6 +18,7 @@ Route::get('/', function () {
 /*Route::get('/inversions', 'InversionController@test_queries');*/
 
 Route::get('/inversions', 'InversionController@index');
+Route::get('/beneficiarios', 'BeneficiarioController@index');
 
 Route::get('/usuarios', 'UserController@index');
 

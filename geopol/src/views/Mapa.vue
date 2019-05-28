@@ -436,7 +436,7 @@ export default {
 
     visualizarProvincias() {
       this.$store
-        .dispatch("getProyectosPorZonas")
+        .dispatch("getBeneficiariosAll")
         .then(resp => {
           //console.log('no error:')
         })
@@ -542,6 +542,7 @@ export default {
     this.initMap();
     this.initLayers();
     this.map.on("click", this.getCorde);
+    this.visualizarProvincias()
   }
 };
 </script>

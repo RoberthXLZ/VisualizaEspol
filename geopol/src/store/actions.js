@@ -42,13 +42,11 @@ export default {
         })
     })*/
     const proxyurl = "https://cors-anywhere.herokuapp.com/"
-    const url = 'http://127.0.0.1:8000/beneficiario'
+    const url = 'http://127.0.0.1:8000/beneficiarios'
     axios.get(url)
-      /*.then(function (response) {
-      console.log(response.data);
-      })*/
-      .then(response => response)
-      .then(contents => console.log(contents))
+      .then(function (response) {
+        console.log(response.data);
+      })
       .catch(function (error) {
       console.log('supererror',error);
       });
