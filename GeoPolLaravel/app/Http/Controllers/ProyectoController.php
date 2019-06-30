@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Proyecto;
+use App\involucrado;
+use App\beneficiario;
+use App\inversion;
 use Illuminate\Http\Request;
+
+use DB;
 
 class ProyectoController extends Controller
 {
@@ -15,6 +20,31 @@ class ProyectoController extends Controller
     public function index()
     {
         //
+        $ben = DB::table('proyectos')
+        ->join('beneficiarios', 'beneficiarios.id','proyectos.id_Beneficiario')
+        //->join('inversions', 'inversions.id','proyectos.id_Inversion')
+        //->join('involucrados', 'involucrados.id','proyectos.id_Involucrado')
+        ->select()
+        ->get();
+        
+        $inv = DB::table('proyectos')
+        //->join('beneficiarios', 'beneficiarios.id','proyectos.id_Beneficiario')
+        ->join('inversions', 'inversions.id','proyectos.id_Inversion')
+        //->join('involucrados', 'involucrados.id','proyectos.id_Involucrado')
+        ->select()
+        ->get();
+        $pro = Proyecto::all();
+        $involu = DB::table('proyectos')
+        //->join('beneficiarios', 'beneficiarios.id','proyectos.id_Beneficiario')
+        //->join('inversions', 'inversions.id','proyectos.id_Inversion')
+        ->join('involucrados', 'involucrados.id','proyectos.id_Involucrado')
+        ->select()
+        ->get();
+                //dd($p);
+        //$p = Proyecto::all();
+        //$b = $p->beneficiario;
+        //return Response::json();
+
     }
 
     /**

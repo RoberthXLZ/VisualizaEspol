@@ -21,6 +21,7 @@ Route::get('/inversions', 'InversionController@index');
 Route::get('/beneficiarios', 'BeneficiarioController@index');
 
 Route::get('/usuarios', 'UserController@index');
+Route::get('/proyecto', 'ProyectoController@index');
 
 Route::get('/usuarios/{id}', 'UserController@show') ->where('id', '\d+');
 

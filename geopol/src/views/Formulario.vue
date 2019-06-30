@@ -116,7 +116,7 @@
               </md-step>
               
               <!--Segundo Stepper -->
-              <md-step
+              <!--md-step
                 id="second"
                 md-label="Lugar"
                 md-description="Lugar donde ocurrió el proyecto"
@@ -145,13 +145,13 @@
                   </div>
 
                   <div class="md-layout-item md-small-size-100">
-                    <!--md-autocomplete name="selectedPaises" id="selectedPaises" v-model="form.selectedPaises" md-dense  :md-options="paises" >
+                    <md-autocomplete name="selectedPaises" id="selectedPaises" v-model="form.selectedPaises" md-dense  :md-options="paises" >
                         <label >Paises</label>
-                    </md-autocomplete-->
+                    </md-autocomplete>
                     <v-card id="map" class="map"></v-card>
                   </div>
                 </div>
-              </md-step>
+              </md-step-->
 
               <md-step
                 id="third"

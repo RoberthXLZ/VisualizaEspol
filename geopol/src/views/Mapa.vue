@@ -469,17 +469,7 @@ export default {
           shadowAnchor: [4, 62],  // the same for the shadow
           popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
           }); */
-          var prueba ='<div class="grid-container" style="display: grid; grid-column-gap: 50px; grid-template-columns: auto auto auto;background-color: #2196F3;padding: 10px;">'+
-  '<div class="grid-item" style="background-color: rgba(255, 255, 255, 0.8);border: 1px solid rgba(0, 0, 0, 0.8);padding: 20px;font-size: 30px;text-align: center;">1</div>'+
-  '<div class="grid-item">2</div>'+
-  '<div class="grid-item">3</div>'+
-  '<div class="grid-item">4</div>'+
-  '<div class="grid-item">5</div>'+
-  '<div class="grid-item">6</div>'+
-  '<div class="grid-item">7</div>'+
-  '<div class="grid-item">8</div>'+
-  '<div class="grid-item">9</div>'+
-'</div>';
+          
           var bene =
             '<div class="card" style = "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);max-width: 300px;margin: auto;text-align: center;"><i class="fas fa-igloo fa-10x"></i><h1>John Doe</h1>' +
             '<p style="color: grey;font-size: 18px;">CEO & Founder, Example</p>' +
@@ -507,7 +497,7 @@ export default {
             "<div>" +
             feature.tipo +
             "<div>";
-          ventana = ventana + bene + prueba;
+          ventana = ventana + bene;
           /*value.forEach((ben)=>{
             bene= bene +'<div>'+ ben.nombre +'</div>'+'<div>'+ ben.celular +'</div>';
           });*/
